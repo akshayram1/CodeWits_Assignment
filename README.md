@@ -90,20 +90,14 @@ You should see a message in the console: `Server running on port 3000`.
 
 json
 ```
-
-
 `POST /auth/register { "name": "John Doe", "email": "johndoe@example.com", "password": "password123", "role": "Company" }`
-
 ```
 2. Login (Retrieve JWT Token)
 
 
 json
 ```
-
-
 `POST /auth/login { "email": "johndoe@example.com", "password": "password123" }`
-
 ```
 
 3. Create Job (Company Role)
@@ -111,9 +105,7 @@ json
 
 json
 ```
-
 `POST /jobs Headers: { "Authorization": "Bearer " } Body: { "title": "Software Engineer", "description": "Develop software applications.", "location": "Mumbai", "salary": 60000 }`
-
 ```
 
 4. Apply for Job (Candidate Role)
@@ -121,10 +113,7 @@ json
 
 json
 ```
-
-
 `POST /applications//apply Headers: { "Authorization": "Bearer " } Body: { "resume": "https://example.com/resume.pdf" }`
-
 ```
 
 
@@ -135,5 +124,4 @@ To run unit tests, use:
 bash
 ```
 `npm test`
-
 ```
