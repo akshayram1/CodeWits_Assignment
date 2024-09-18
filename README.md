@@ -40,3 +40,86 @@ This project is a backend implementation of a job listing portal where companies
 ```bash
 git clone https://github.com/your-username/job-listing-portal.git
 cd job-listing-portal
+```
+### 3. Install Dependencies
+
+```
+bash
+```
+
+
+`npm install`
+### 4. Environment Variables
+Create a `.env` file in the root of the project and add the following variables:
+
+```
+env
+```
+
+
+`PORT=3000 MONGODB_URI=mongodb://localhost:27017/job_portal JWT_SECRET=your_jwt_secret_key`
+* **PORT**: The port number the server will listen to.
+* **MONGODB_URI**: Connection string for the MongoDB instance.
+* **JWT_SECRET**: A secret key used for signing JWT tokens.
+### 5. Start the Server
+
+```
+bash
+```
+
+
+`npm start`
+You should see a message in the console: `Server running on port 3000`.
+
+### 6. Testing with Postman
+* **Authentication**:
+   * **Register**: `POST http://localhost:3000/auth/register`
+   * **Login**: `POST http://localhost:3000/auth/login`
+* **Job Management (Company)**:
+   * **Create Job**: `POST http://localhost:3000/jobs`
+   * **Update Job**: `PUT http://localhost:3000/jobs/`
+   * **Delete Job**: `DELETE http://localhost:3000/jobs/`
+   * **Get All Jobs**: `GET http://localhost:3000/jobs`
+* **Application Management (Candidate)**:
+   * **Apply for Job**: `POST http://localhost:3000/applications//apply`
+   * **View Applications** (Company): `GET http://localhost:3000/applications`
+**Note**: Use the JWT token in the `Authorization` header as `Bearer ` for protected routes.
+### 7. API Usage Examples
+### 1. Register (User Creation)
+
+```
+json
+```
+
+
+`POST /auth/register { "name": "John Doe", "email": "johndoe@example.com", "password": "password123", "role": "Company" }`
+2. Login (Retrieve JWT Token)
+
+```
+json
+```
+
+
+`POST /auth/login { "email": "johndoe@example.com", "password": "password123" }`
+3. Create Job (Company Role)
+
+```
+json
+```
+
+`POST /jobs Headers: { "Authorization": "Bearer " } Body: { "title": "Software Engineer", "description": "Develop software applications.", "location": "Mumbai", "salary": 60000 }`
+4. Apply for Job (Candidate Role)
+
+```
+json
+```
+
+
+`POST /applications//apply Headers: { "Authorization": "Bearer " } Body: { "resume": "https://example.com/resume.pdf" }`
+Running Tests
+To run unit tests, use:
+
+```
+bash
+```
+`npm test`
